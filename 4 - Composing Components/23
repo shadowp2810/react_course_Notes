@@ -1,0 +1,9 @@
+In this section we looked at:
+- Props to Pass Data
+- Raise and Handle Events
+- Lifting the State (Multiple Components in Sync)
+- Functional Components
+- Lifecycle Hooks
+
+In the next section we are going to extend the vidly application,
+add pagination, sorting and searching.

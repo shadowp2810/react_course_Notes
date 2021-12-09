@@ -1,0 +1,9 @@
+So far we have worked with single components.
+A real application consists of a tree of components.
+
+In this section we will:
+- Pass Data
+- Raise and Handle Events
+- Multiple Components in Sync
+- Functional Components
+- Lifecycle Hooks

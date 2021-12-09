@@ -1,0 +1,27 @@
+The application backend has an endpoint to login users.
+
+http://localhost:3900/api/auth
+
+We POST to it the following properties
+which the endpoint in current implementation
+expects to recieve.
+{
+"email": "user1@domain.com",
+"password": "123456"
+}
+
+We are returned
+{
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWFlMzQwOGQ5ZTYwNzI0MmFlZDczNzMiLCJuYW1lIjoiTW9zaCIsImVtYWlsIjoidXNlcjFAZG9tYWluLmNvbSIsImlhdCI6MTYzODgwODQwMX0.GaJuT3QiNeFELS5B3R_9-d_dDBUT6kgtlp54ydyhZ_A
+}
+This is a JSON web token.
+We think of this as an identification card,
+like a drivers license or password.
+Sending a valid username and password,
+server gives back a valid identification card.
+
+In future whenever client needs to call api endpoints that need user to be autheticated,
+the client will send the json web token back to server.
+The server will then validate this,
+and if it is a valid json web token or identification card,
+then it will execute the clients request.

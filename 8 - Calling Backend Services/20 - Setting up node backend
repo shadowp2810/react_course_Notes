@@ -1,0 +1,23 @@
+Make sure mongod and MongoDB Compass is running.
+
+To parent directory of the react app:
+`git clone https://github.com/mosh-hamedani/vidly-api-node`
+
+Inside the cloned directory:
+`node i`
+
+Then run
+`node seed.js`
+
+Can check is database can be accessed on Compass.
+
+Then to start web server run
+`node index.js`
+
+Go to on browser to see list of genres return on mongodb database.
+http://localhost:3900/api/genres
+
+Another endpoint for movies at
+http://localhost:3900/api/movies
+
+This endpoint has full support for all crud operations.

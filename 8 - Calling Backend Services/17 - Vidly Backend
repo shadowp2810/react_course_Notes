@@ -1,0 +1,5 @@
+Uses the backend made in Node.js course.
+
+Node is a runtime environemnt for executing JS code outside a browser.
+Express is a framework for building RESTful APIs.
+MongoDB is a database management system for storing data.

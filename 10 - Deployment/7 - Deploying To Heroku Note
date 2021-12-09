@@ -1,0 +1,13 @@
+In the vidly-api-node directory we go to terminal
+and type command "heroku create"
+It creates a random name for application,
+a url its hosted on,
+and a git url where we can remotely push changes.
+Whenever we push new code to this repository,
+heroku will be notified,
+it will download the latest source code, build it, and deploy to address.
+Called continuous integration.
+"git push heroku master" to push code from local git to heroku repository.
+Where master is name of current branch.
+"heroku open" to open application.
+This has an error so we need to log and fix it.

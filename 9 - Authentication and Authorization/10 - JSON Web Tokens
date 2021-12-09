@@ -1,0 +1,50 @@
+We head over to
+https://jwt.io/
+This is the main site when working with JSON web tokens.
+It has a list of libraries to generate a validate JWTs.
+Using the debugger, we can decode a JWT and look at its content.
+
+Copy and Paste the JWT you find in Chome Dev Tools, Application Tab, Local Storage.
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+.eyJfaWQiOiI2MWFlODU4YTcyNmEzYzUzMDQxZmZhNGYiLCJuYW1lIjoidXNlcjQiLCJlbWFpbCI6InVzZXI0QGRvbWFpbi5jb20iLCJpYXQiOjE2Mzg4Mjc0MDJ9
+.aRpvHqPezUoIb5XAh5KEhoh514_p8KG6gNGPn6jnaiU
+We see the JWT has three parts
+
+- HEADER:ALGORITHM & TOKEN TYPE
+  {
+  "alg": "HS256",
+  "typ": "JWT"
+  }
+- PAYLOAD:DATA
+  {
+  "\_id": "61ae858a726a3c53041ffa4f",
+  "name": "user4",
+  "email": "user4@domain.com",
+  "iat": 1638827402
+  }
+- VERIFY SIGNATURE
+  HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  your-256-bit-secret
+  )
+
+The long string is the encoded version of each of these JSON objects.
+Encoded using base64URL algorithm.
+iat property in payload object is time token was generated.
+We refer to each of these properties as claims.
+The last part of JWT, the VERIFY SIGNATURE,
+is a digital signature that is generated based on
+the header, payload, and a secreat only available on server.
+This prevents a malicious user from getting their own JWT,
+and modifying the ID to be someone else.
+The moment you modify any of the Ids, the digital signature needs to be regenerated.
+In order to generate the digital signature you need a secret only available on server.
+Unless a hacker gets access to server
+and finds private key they cannot modify JWT and pretend to be someone else.
+
+In the payload we have atributes about the user.
+We can decode the JWT, extract the attributes, and easily display user's name on nav bar.
+In the payload we have basic information about the user,
+so we don't have to query database everytime to find out users name or email.
+All this basic info is included in JWT.

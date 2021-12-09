@@ -1,0 +1,42 @@
+Head over to https://brew.sh/ ,
+Homebrew is a package manager for MacOS, similar to npm.
+
+`brew tap mongodb/brew`
+`brew install mongodb-community@5.0`
+
+By default mongodb stores data in directory /data/db
+so in app directory
+`sudo mkdir -p /data/db`
+If doesn't work, for newer osx versions
+`sudo mkdir -p /System/Volumes/Data/data/db`
+
+If you need to open bash profile on mac with textedit
+`touch ~/.bash_profile; open ~/.bash_profile`
+
+To make configure the right permissions for data directory
+`sudo chown -R `id -un` /data/db`
+or
+`sudo chown -R `id -un` /System/Volumes/Data/data/db`
+
+We need to run mongo daemon
+which is a service that runs in background
+and listens for connections on a given port.
+`mongod` which is short for mongo daemon.
+or `sudo mongod --dbpath=/System/Volumes/Data/data/db`
+Gives message "msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}"
+
+We get https://www.mongodb.com/products/compass
+which is a client application to connect to mongodb server.
+We can look at databases and work with data.
+We connect with default hostname: localhost and Port: 27017.
+By default we have admin and local databases,
+which are purely for mongodb to do its job.
+
+If facing errors and want to clean up mongo
+`brew uninstall mongodb-community mongodb-database-tools mongosh`
+"CMD+SHIT+G" while inside finder, then search "/usr/local"
+
+To restart mongodb/brew/mongodb-community after an upgrade:
+`brew services restart mongodb/brew/mongodb-community`
+Or, if you don't want/need a background service you can just run:
+`mongod --config /usr/local/etc/mongod.conf`

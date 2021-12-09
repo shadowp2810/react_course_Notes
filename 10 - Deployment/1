@@ -1,0 +1,7 @@
+In this section we will be looking at
+- Environement Variables
+   (Configuration for different environments like development, test and production.)
+- Production Builds
+   (Easily deplay to any server)
+- Deploying to Heroku
+   (Deplying Front and Back end to Heroku)

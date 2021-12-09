@@ -1,0 +1,39 @@
+Before modifying our Vidly application
+to talk to node backend,
+lets quickly make sure we can successfully make a movie
+by sending a http request to the movies endpoint.
+To do this we will use Postman.
+
+In Postman you can send
+various http requests
+to any given endpoint.
+In Postman open a new tab
+and type http://localhost:3900/api/movies
+First we send a GET request
+which gives us the array of movies objects with its properties.
+Now we change to POST request,
+go to body and add a new movie object,
+select raw and change type of request to JSON.
+Remember in JSON all strings are in quotes.
+We make sure to use a valid genreID.
+{
+"title": "Airplane 2 Sequel",
+"numberInStock": 2,
+"dailyRentalRate": 4,
+"genreId": "61acf5ab2f7771220951017e"
+}
+You get a response "Access denied, no token provided."
+We will look at authorization later,
+but for now there is a config file included where you can turn it on or off,
+not how it should be done in production.
+
+Go to folder "config" in "vidly-api-node",
+and there go to "default.json",
+and change to false
+"requiresAuth": true
+This lets you modify the data without having to authenticate.
+Save changes and rerun `node index.js`
+
+Going back to postman and rerunning it gives us status 200,
+and the movie object and its properties we added,
+with its own unique identifier id.

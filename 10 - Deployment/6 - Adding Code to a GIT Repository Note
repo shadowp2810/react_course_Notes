@@ -1,0 +1,2 @@
+We deploy the backend to github.
+In the .gitignore file we write "node_modules/"

@@ -1,0 +1,16 @@
+We use "npm start" to start our application.
+This gives a development build which is not optimised,
+because the javascript bundle it generates includes additional code,
+that helps debug our application.
+But when we deploy our application to production,
+we don't want all that extra code.
+We want an optimized production build.
+To get that we run "npm run build"
+This creates an optimized production build, which might take a few mins.
+In our project folder we have a new folder "build".
+We can basically get content of folder and send it to server using ftp.
+To test the build on machine we can install package serve
+"sudo npm install -g serve",
+which is a lightweight web server.
+And with commoand "serve -s build" we can serve content of build folder.
+It might serve the application at localhost:5000,

@@ -1,0 +1,9 @@
+Go to https://devcenter.heroku.com/articles/heroku-cli
+and install heroku cli.
+Go to terminal and "heroku -v" to check if working.
+Then "heroku login", enter email and password.
+Chances are this step may fail on your machine,
+if you are behind a firewiall that requires use of proxy to connect to http services.
+For that you can set an environement variable 
+"export HTTP_PROXY=http://proxy.server.com:1234"
+after that try relogging in.

@@ -1,0 +1,36 @@
+In config.json we stored our configuration parameters
+{
+"apiUrl": "http://localhost:3900/api"
+}
+But the parameters set here are not environemnt specific.
+Every application goes through multiple environemnts.
+Development. Test. Production.
+Sometimes we want value of parameters to be different across different environemnts.
+On development machine we want to use development backend.
+But when we deploy to production environemnt we want to use a real production backend with real data.
+This config.json won't help us with that.
+However the applications we create with create-react-app has build in support for environemnt variables.
+In root of project we add a new file ".env"
+Note this file has no name, just an extension.
+In this Every file we store all environemnt variables with thier defualt values.
+We can also have environemnt specific files.
+".env.development" , ".env.test" , ".env.production"
+All these variables we store have a key and value.
+They keys must start with "REACT*APP*".
+eg:
+REACT_APP_NAME=Vidly in Dev
+REACT_APP_VERSION=1
+
+Going to any js file and doing a "console.log(process.env.REACT_APP_NAME)",
+where process represents current process
+and env is propert of object that represents all environment variables.
+These environment variables can be set directly in terminal or can come from .env config files.
+
+In chrome dev tools going to sources,static,js, bundle.js which contains all the js code,
+we see that expression that reference environment variable
+are replaced by actual value of environment variable during build time.
+
+In terminal when we run npm start,
+the build process happens,
+all environemt variables stored directly in shell or config files are extracted,
+and if called like process.env.REACT_APP_NAME are replaced with actual value.

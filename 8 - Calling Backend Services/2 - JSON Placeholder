@@ -1,0 +1,28 @@
+In this section we use
+a fake backend called JSON Placeholder.
+
+`https://jsonplaceholder.typicode.com/`
+
+A fake online REST API for testing and prototyping.
+REST stands for Representational State Transfer.
+API stands for Application Programming Interface.
+This website provides a bunch of endpoints
+that are publically acessible over the internet.
+You can send HTTP requests to this website
+to GET, CREATE, UPDATE and DELETE data, refered to as CRUD operations.
+We refer to these endpoints as APIs endpoints.
+So they give you an interface to use in your applications.
+
+JSONPlaceholder comes with a set of 6 common resources:
+/posts 100 posts
+/comments 500 comments
+/albums 100 albums
+/photos 5000 photos
+/todos 200 todos
+/users 10 users
+
+https://jsonplaceholder.typicode.com/posts
+Each objects in posts has 4 properties
+"userId", "id", "title", and "body"
+
+You can use JSON view chrome extension to see JSON properly formated.

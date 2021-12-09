@@ -1,0 +1,26 @@
+In root of react app we add new file ".env.production"
+In it we write 
+"REACT_APP_API_URL=<address of heroku host>"
+We make sure address ends with api.
+
+In ".env.development" we write
+"REACT_APP_API_URL=<address from config.json>"
+We remove all references of config address,
+eg: "const apiEndpoint = apiUrl + "/auth"",
+    to "const apiEndpoint = "/auth""
+
+We make same changes to 
+authService, genreService, movieService, userService.
+On top of httpService we add
+"axios.defaults.baseURL = process.env.REACT_APP_API_URL;"
+This will be replaced with a different value 
+depnding on how we build the application.(dev,test,prod)
+
+We can test locally before pushing to heroku.
+Before that we need to remove from movies.jsx "if (count===0) return ..."
+
+"npm run build"
+"serve -s build"
+
+
+

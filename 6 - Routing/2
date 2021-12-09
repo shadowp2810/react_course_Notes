@@ -1,0 +1,16 @@
+Inside the router-app folder
+`npm i`
+`npm start`
+
+Basic page showing
+
+- Home
+- Products
+- Posts
+- Admin
+
+install extension
+Auto Import - ES6, TS, JSX, TSX
+
+`npm i react-router-dom`
+`npm start`

@@ -1,0 +1,19 @@
+In react you need to send HTTP requests to backend
+to get or save data.
+React is just a simple lightwieght library for building UIs.
+All it cares about is rendering the view and managing the DOM.
+It makes sure that what we have in Browser DOM is in synch with the Application.
+React has no opinion on how to send HTTP requests to server.
+This is one of the good things about using React.
+You can use the libraries you prefer to send HTTP requests.
+In contract in Angular you have HttpModule to send HTTP requests.
+Which a lot of people have complaints about.
+When using Angular you have to do things the Angular way.
+When using React you have the freedome,
+the flexibility to use the libraries you prefer.
+Most modern browsers have the ability to send HTTP requests using the Fetch API.
+Was introduced in recent years and is there is most modern browsers.
+Another option we can use is jQuery AJAX.
+Another popular library is Axios,
+which is what we will be using.
+`npm i axios@0.18`

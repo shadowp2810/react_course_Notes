@@ -1,0 +1,7 @@
+We set up an mlab or atlas account at https://cloud.mongodb.com/
+You can deploy to AWS, Google Cloud or Azure.
+Snadbox plan is free at 1 per project, 0.5gb.
+We create a projcet name, vidly in our case,
+We add a database user, 
+and with that we get a mongodb uri which we can use in node application.
+

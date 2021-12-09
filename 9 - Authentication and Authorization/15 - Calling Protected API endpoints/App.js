@@ -1,0 +1,64 @@
+/*
+Http service has a dependency that to auth service,
+and Auth service has a dependency to Http service.
+This is called bi-directional dependencies,
+and that can cause problems later.
+First we need to determine which module is more essential or core module.
+In this case Http service is more essential as without it cannot make call to backend.
+So Auth module should be ontop of http module.
+So instead of Http serivice asking auth service for JWT (getJwt),
+we can go to auth service and tell http serice here is my JWT (setJwt),
+so we reverse the statement.
+*/
+
+import React, { Component } from "react";
+import { Route, Redirect, Switch } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import auth from "./services/authService";
+import Movies from "./component/movies";
+import MovieForm from "./component/movieForm";
+import Customers from "./component/customers";
+import Rentals from "./component/rentals";
+import NotFound from "./component/notFound";
+import NavBar from "./component/navBar";
+import LoginForm from "./component/loginForm";
+import RegisterForm from "./component/registerForm";
+import Logout from "./component/logout";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
+
+class App extends Component {
+  //initialize state to empty object
+  state = {};
+
+  componentDidMount() {
+    const user = auth.getCurrentUser();
+    //setting state will cause app component to rerender
+    this.setState({ user });
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <ToastContainer />
+        <NavBar user={this.state.user} />
+        <main className="container">
+          <Switch>
+            <Route path="/register" component={RegisterForm}></Route>
+            <Route path="/login" component={LoginForm}></Route>
+            <Route path="/logout" component={Logout}></Route>
+            <Route path="/movies/:id" component={MovieForm}></Route>
+            <Route path="/movies" component={Movies}></Route>
+            <Route path="/customers" component={Customers}></Route>
+            <Route path="/rentals" component={Rentals}></Route>
+            <Route path="/not-found" component={NotFound}></Route>
+            <Redirect from="/" exact to="/movies" />
+            <Redirect to="/not-found" />
+          </Switch>
+        </main>
+      </React.Fragment>
+    );
+  }
+}
+
+export default App;

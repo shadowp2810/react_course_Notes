@@ -1,0 +1,45 @@
+We copy the connection stream from mlab or atlas.
+We repace dbuser and dbpassword section.
+user:password@ds...
+On terminal we want to store this as an environment variable on heroku.
+"heroku config:set vidly_db=mongodb+srv://vidlyuser:<password>@vidly.mkjdc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
+Now we make a small change to application,
+In config folder, custom-environment-variables.json,
+we add "db" : "vidly_db"
+Development environment setting are in default.json.
+
+we "git add ."
+"git commit -m "Added support for reading connection string from an environemnt variable."
+"git push heroku master"
+This notifies heroku to rebuild and redeploy.
+
+
+
+Steps to follow to fix issues.
+
+"npm update mongoose"
+Latest mongoose as of 5/01/2021 is mongoose 5.11.10. If there is a newer version please check the documentation.
+
+Open db.js in startup folder.
+
+Change "mongoose.connect(db)" to
+"mongoose.connect(db, {useNewUrlParser:true, useUnifiedTopology: true})"
+
+copy the connection string for Node driver version 2.2.12 or later.
+make sure the connection string does not have (mongodb+srv)
+copied connection string for node driver version 2.2.12 will look like as shown below.
+
+mongodb://<username>:<password>@vidlycluster-shard-00-00.knv7y.mongodb.net:27017,vidlycluster-shard-00-01.knv7y.mongodb.net:27017,vidlycluster-shard-00-02.knv7y.mongodb.net:27017/<dbname>?ssl=true&replicaSet=atlas-8ezfa5-shard-0&authSource=admin&retryWrites=true&w=majority
+Replace “password” with the password for the “username” user. Replace “dbname” with the name of the database that connections will use by default.
+Once replaced, remove all the angle brackets.
+
+Head over to heroku dashboad,
+→Settings → Click on “Reveal Config Vars” → Enter the Key as vidly_db, value will the connection mongodb connection string.
+
+Back to terminal,
+git add .
+git commit -m “Commit message”
+git push heroku master
+heroku open
+

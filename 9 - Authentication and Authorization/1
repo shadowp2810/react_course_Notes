@@ -1,0 +1,12 @@
+This section is all about Authentication and Authorization.
+We will add the ability for users to register, log in and log out.
+
+We will learn about:
+
+- JSON Web Tokens
+- Calling Protected APIs
+  (The endpoints that require user to be logged in or need permissions)
+- Showing/Hiding Elements
+  (Depending on users permission)
+- Protecting Routes
+  (So users cannot navigate to certain parts of Application if not authenticated or authorized)

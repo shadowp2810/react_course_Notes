@@ -1,0 +1,30 @@
+The application backend has an endpoint to register users.
+
+http://localhost:3900/api/users
+
+We POST to it the following properties
+which the endpoint in current implementation
+expects to recieve.
+{
+"email": "user1@domain.com",
+"password": "123456",
+"name": "Mosh",
+}
+
+We are returned
+{
+"\_id": "61ae3408d9e607242aed7373",
+"name": "Mosh",
+"email": "user1@domain.com"
+}
+Pasword is not here for security reasons.
+
+Sending the above initial request again returns
+"User already registered."
+with status 400 which means bad request.
+
+When you build backends you need endpoint to recieve users,
+and it should respong with 200 or 400.
+So now we have an understanding
+of how the client and server will communitcate
+in registration of new user.

@@ -1,0 +1,12 @@
+On Heroku dashboard we see the application.
+Under more we have view logs,
+alternatively we use terminal.
+Inside backend folder "heroku logs"
+You might see Mongo Network error, 
+failed to connect to server localhost:27017 on first connect.
+This is default port for mongodb.
+Open up config folder,
+inside default.json, db property is set to address on mongo on local machine.
+We need to change this to server addres on mlab or atlas. 
+We must never store the password on here 
+and instead store as environment variable on heroku using terminal. 
