@@ -1,0 +1,25 @@
+Prop Drilling
+is when you have a component tree,
+and an object at top like currentUser,
+and if you want to access it in each component under the tree,
+you call it prop drilling.
+Because in every level you have to drill a hole to pass a prop.
+Over time as application grows and there is more data to share,
+this approach becomes unmaintainable.
+
+A few years ago before there was context in react,
+a library called Redux solved this problem.
+Redux has additonal feuatures but was originally designed to solve this problem.
+In Redux you don't drill properties at every level,
+you have a store which is an object that stores the global state of application.
+That is the data you want to share across components.
+Any component can get data from store,
+which is the idea behind redux.
+But redux brings a lot of complexity.
+
+React later introduced context,
+where you can pass data down the tree,
+without prop drilling.
+A component can provide context,
+and a component that requires it can consume that context.
+So when using this feature you have providers and consumers.

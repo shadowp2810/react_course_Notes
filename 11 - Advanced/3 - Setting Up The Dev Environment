@@ -1,0 +1,6 @@
+We no longer have react installed globally.
+`sudo npm uninstall -g create-react-app`
+Instead
+`npx create-react-app react-advanced`
+`cd react-advanced`
+`npm start`

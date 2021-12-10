@@ -1,0 +1,23 @@
+We use Higher Order Components
+to reuse logic across components.
+
+Supose you have a square and you hover over it which shows a tool tip,
+and when you take cursor away from it it dissapears.
+To implement this you need some kind of state,
+like a boolean flag like show tool tip.
+Next we need mouse events like mouse over and mouse out,
+so in our event handelers we change state,
+and reset value of boolean field.
+Somewhere in this component we need to conditonially render tool tip,
+depending on value of tool tip flag.
+Suppose you have two more squares, and you need to implement same with them.
+If there is a bug in our implementation, we have to change every single component.
+We use higher order components to solve this problem.
+
+We create a new function and pass this to the component.
+And function creates a new component that wraps original component.
+And in this bigger comonent we wrap all the functionality for showing tool tip.
+Another example is having multiple components fetching data from backend.
+When fetching data we want to show a loading icon.
+We implement this common logic inside this wraper component.
+And with this we no long have to repeat it across different components.
